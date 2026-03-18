@@ -1,0 +1,146 @@
+# Flutter Template Project Manifest
+# Defines configuration options for generating a new project from the template
+
+# --------------------------------------
+# 1. Project Metadata
+# --------------------------------------
+project_name: "my_flutter_app"
+description: "A new Flutter app generated from Clean Architecture template"
+author: "Your Name"
+organization: "com.example"
+version: "1.0.0"
+
+# --------------------------------------
+# 2. Target Platforms
+# --------------------------------------
+platforms:
+  mobile:
+    android: true
+    ios: true
+  web: true
+  desktop:
+    windows: false
+    macos: false
+    linux: false
+
+# --------------------------------------
+# 3. Theming
+# --------------------------------------
+theme:
+  enabled: true
+  light_theme_colors:
+    primary: "#6200EE"
+    secondary: "#03DAC6"
+    background: "#FFFFFF"
+    surface: "#F5F5F5"
+  dark_theme_colors:
+    primary: "#BB86FC"
+    secondary: "#03DAC6"
+    background: "#121212"
+    surface: "#1E1E1E"
+  font: "Roboto"
+
+# --------------------------------------
+# 4. Localization
+# --------------------------------------
+localization:
+  enabled: true
+  locales:
+    - "en"
+    - "ar"
+  fallback_locale: "en"
+  translation_files_path: "lib/l10n"
+
+# --------------------------------------
+# 5. APIs / External Packages
+# --------------------------------------
+apis:
+  - name: "user_api"
+    swagger_file: "user_api.yaml"
+    package_name: "user_api_package"
+  - name: "order_api"
+    swagger_file: "order_api.yaml"
+    package_name: "order_api_package"
+
+# --------------------------------------
+# 6. Feature / Module Defaults
+# --------------------------------------
+features:
+  pre_create_core_features: true
+  default_features:
+    - name: "user"
+      include_tests: true
+    - name: "auth"
+      include_tests: true
+    - name: "settings"
+      include_tests: false
+
+# --------------------------------------
+# 7. State Management
+# --------------------------------------
+state_management:
+  method: "BaseState"   # options: BaseState, Cubit, Bloc, Riverpod, GetX
+
+# --------------------------------------
+# 8. Routing
+# --------------------------------------
+routing:
+  method: "auto_route"  # options: auto_route, go_router, custom
+  nested_routes: true
+  web_deep_linking: true
+
+# --------------------------------------
+# 9. Storage / Database
+# --------------------------------------
+storage:
+  local_storage:
+    enabled: false
+    method: "Hive"       # options: Hive, SQFlite, ObjectBox
+  cache:
+    enabled: false
+    strategy: "memory"   # options: memory, disk
+
+# --------------------------------------
+# 10. CI / DevOps
+# --------------------------------------
+ci:
+  github_actions: true
+  linting: true
+  test_coverage: true
+  code_formatting: true
+
+# --------------------------------------
+# 11. Logging / Monitoring
+# --------------------------------------
+logging:
+  default_logger: true
+  advanced_logging: false
+  sentry: false
+
+# --------------------------------------
+# 12. Optional Services
+# --------------------------------------
+services:
+  analytics: true
+  crash_reporting: true
+  notifications: false
+  remote_config: false
+
+# --------------------------------------
+# 13. Generator Options
+# --------------------------------------
+generator:
+  idempotent: true
+  scaffold_domain: true
+  scaffold_presentation: true
+  scaffold_data: true
+  overwrite_existing_code: false
+
+# --------------------------------------
+# 14. Misc / Additional Settings
+# --------------------------------------
+extras:
+  use_example_app: true
+  include_readme: true
+  include_instructions: true
+  enforce_architecture_rules: true
