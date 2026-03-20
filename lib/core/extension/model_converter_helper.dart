@@ -47,11 +47,7 @@ class ModelConverterHelper {
     if (value is T) return value;
 
     try {
-      return serializers.deserialize(
-            value,
-            specifiedType: FullType(T),
-          )
-          as T?;
+      return serializers.deserialize(value, specifiedType: FullType(T)) as T?;
     } catch (_) {
       try {
         return value as T?;

@@ -22,7 +22,7 @@ class BaseRepository extends IBaseRepo {
     final isOffline = !networkInfo.isConnected;
 
     if (isOffline) {
-      return const Left(CacheFailure('No cache available'));
+      return const Left(NetworkFailure());
     }
 
     final apiResult = _normalizeEither(
