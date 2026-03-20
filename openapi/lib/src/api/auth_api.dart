@@ -4,15 +4,12 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
-
 import 'package:openapi/src/model/login.dart';
 import 'package:openapi/src/model/login_response.dart';
 
 class AuthApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,7 +20,7 @@ class AuthApi {
   /// Authenticate a user.
   ///
   /// Parameters:
-  /// * [login] 
+  /// * [login]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -33,7 +30,7 @@ class AuthApi {
   ///
   /// Returns a [Future] containing a [Response] with a [LoginResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<LoginResponse>> loginUser({ 
+  Future<Response<LoginResponse>> loginUser({
     required Login login,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -61,10 +58,9 @@ class AuthApi {
     try {
       const _type = FullType(Login);
       _bodyData = _serializers.serialize(login, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -87,11 +83,12 @@ class AuthApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(LoginResponse),
-      ) as LoginResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(LoginResponse),
+            ) as LoginResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -113,5 +110,4 @@ class AuthApi {
       extra: _response.extra,
     );
   }
-
 }

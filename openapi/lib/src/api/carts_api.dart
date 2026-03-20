@@ -4,16 +4,13 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
-
-import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/api_util.dart';
 import 'package:openapi/src/model/cart.dart';
 
 class CartsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -24,7 +21,7 @@ class CartsApi {
   /// Create a new cart.
   ///
   /// Parameters:
-  /// * [cart] 
+  /// * [cart]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,7 +31,7 @@ class CartsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Cart] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Cart>> addCart({ 
+  Future<Response<Cart>> addCart({
     required Cart cart,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -62,10 +59,9 @@ class CartsApi {
     try {
       const _type = FullType(Cart);
       _bodyData = _serializers.serialize(cart, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -88,11 +84,12 @@ class CartsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Cart),
-      ) as Cart;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(Cart),
+            ) as Cart;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -119,7 +116,7 @@ class CartsApi {
   /// Delete a specific cart by ID.
   ///
   /// Parameters:
-  /// * [id] 
+  /// * [id]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -129,7 +126,7 @@ class CartsApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> deleteCart({ 
+  Future<Response<void>> deleteCart({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -138,7 +135,8 @@ class CartsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(int)).toString());
+    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(int)).toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -175,7 +173,7 @@ class CartsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<Cart>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<Cart>>> getAllCarts({ 
+  Future<Response<BuiltList<Cart>>> getAllCarts({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -208,11 +206,12 @@ class CartsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(Cart)]),
-      ) as BuiltList<Cart>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(Cart)]),
+            ) as BuiltList<Cart>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -239,7 +238,7 @@ class CartsApi {
   /// Retrieve details of a specific cart by ID.
   ///
   /// Parameters:
-  /// * [id] 
+  /// * [id]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -249,7 +248,7 @@ class CartsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Cart] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Cart>> getCartById({ 
+  Future<Response<Cart>> getCartById({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -258,7 +257,8 @@ class CartsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(int)).toString());
+    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(int)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -283,11 +283,12 @@ class CartsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Cart),
-      ) as Cart;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(Cart),
+            ) as Cart;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -314,8 +315,8 @@ class CartsApi {
   /// Update an existing cart by ID.
   ///
   /// Parameters:
-  /// * [id] 
-  /// * [cart] 
+  /// * [id]
+  /// * [cart]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -325,7 +326,7 @@ class CartsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [Cart] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<Cart>> updateCart({ 
+  Future<Response<Cart>> updateCart({
     required int id,
     required Cart cart,
     CancelToken? cancelToken,
@@ -335,7 +336,8 @@ class CartsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(int)).toString());
+    final _path = r'/carts/{id}'.replaceAll('{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(int)).toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -354,10 +356,9 @@ class CartsApi {
     try {
       const _type = FullType(Cart);
       _bodyData = _serializers.serialize(cart, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -380,11 +381,12 @@ class CartsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(Cart),
-      ) as Cart;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(Cart),
+            ) as Cart;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -406,5 +408,4 @@ class CartsApi {
       extra: _response.extra,
     );
   }
-
 }
