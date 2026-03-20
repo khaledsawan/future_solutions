@@ -1,0 +1,135 @@
+{
+    "errors": {
+        "network": "No internet connection",
+        "network_subtitle": "Please check your connection and try again.",
+        "timeout": "Request timed out",
+        "unauthorized": "Unauthorized access",
+        "forbidden": "Access forbidden",
+        "cancelled": "Request was cancelled",
+        "parsing": "Failed to parse response",
+        "unknown": "Unknown error occurred",
+        "cache": "Failed to read cached data",
+        "validation": "Validation failed",
+        "server": {
+            "generic": "Server error occurred",
+            "400": "Bad request",
+            "401": "Unauthorized",
+            "403": "Forbidden",
+            "404": "Resource not found",
+            "500": "Internal server error",
+            "502": "Bad gateway",
+            "503": "Service unavailable"
+        }
+    },
+    "auth": {
+        "login": {
+            "title": "Sign in",
+            "username": "Username or email",
+            "password": "Password",
+            "submit": "Sign in",
+            "success": "Signed in successfully",
+            "username_required": "Username or email is required",
+            "password_required": "Password is required"
+        }
+    },
+    "products": {
+        "title": "Products",
+        "actions": {
+            "add": "Add Product",
+            "create": "Create Product",
+            "edit": "Edit Product",
+            "update": "Update Product",
+            "delete": "Delete",
+            "add_to_cart": "Add to cart",
+            "refresh": "Refresh",
+            "retry": "Retry",
+            "cancel": "Cancel"
+        },
+        "form": {
+            "title": "Title",
+            "price": "Price",
+            "description": "Description",
+            "category": "Category",
+            "image": "Image URL",
+            "untitled": "Untitled Product",
+            "uncategorized": "Uncategorized"
+        },
+        "empty": {
+            "title": "No products yet",
+            "subtitle": "Create your first product and it will appear here."
+        },
+        "details": {
+            "title": "Product Details",
+            "not_found": "Product not found",
+            "no_description": "No description available.",
+            "confirm_delete_body": "This action cannot be undone."
+        },
+        "messages": {
+            "success": "Success",
+            "missing_id": "Product ID is missing",
+            "add_success": "Product added successfully",
+            "update_success": "Product updated successfully",
+            "delete_success": "Product deleted successfully",
+            "add_to_cart_success": "{title} added to cart.",
+            "api_temporary_notice": "This change is temporary due to the API.",
+            "already_in_cart": "{title} is already in cart.",
+            "confirm_delete_title": "Delete product?",
+            "confirm_delete_body": "This will permanently delete \"{title}\"."
+        },
+        "validation": {
+            "required": "This field is required",
+            "price_required": "Price is required",
+            "price_invalid": "Price must be a valid number",
+            "price_positive": "Price must be greater than zero"
+        }
+    },
+    "carts": {
+        "title": "Carts",
+        "actions": {
+            "add": "Add Cart",
+            "create": "Create Cart",
+            "edit": "Edit Cart",
+            "update": "Update Cart",
+            "delete": "Delete",
+            "clear": "Clear",
+            "refresh": "Refresh",
+            "retry": "Retry",
+            "cancel": "Cancel"
+        },
+        "form": {
+            "user_id": "User ID",
+            "products": "Products"
+        },
+        "empty": {
+            "title": "No products yet",
+            "subtitle": "Add products from Products page to see them here."
+        },
+        "details": {
+            "title": "Cart Details",
+            "products": "Products in cart",
+            "not_found": "Cart not found"
+        },
+        "messages": {
+            "success": "Success",
+            "missing_id": "Cart ID is missing",
+            "add_success": "Cart added successfully",
+            "update_success": "Cart updated successfully",
+            "delete_success": "Cart deleted successfully",
+            "remove_success": "Item removed from cart",
+            "clear_success": "Cart cleared successfully",
+            "confirm_delete_title": "Delete cart?",
+            "confirm_delete_body": "This action cannot be undone.",
+            "confirm_clear_title": "Clear cart?",
+            "confirm_clear_body": "All cart items will be removed.",
+            "user_id": "User ID: {id}",
+            "products_count": "Products: {count}",
+            "no_products_available": "No products available to select.",
+            "no_products_selected": "No products in this cart."
+        },
+        "validation": {
+            "user_id_required": "User ID is required",
+            "user_id_invalid": "User ID must be a valid positive number",
+            "products_required": "Please select at least one product"
+        }
+    }
+}

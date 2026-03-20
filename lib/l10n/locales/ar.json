@@ -1,0 +1,135 @@
+{
+    "errors": {
+        "network": "لا يوجد اتصال بالإنترنت",
+        "network_subtitle": "يرجى التحقق من الاتصال والمحاولة مرة أخرى.",
+        "timeout": "انتهت مهلة الطلب",
+        "unauthorized": "وصول غير مصرح به",
+        "forbidden": "الوصول محظور",
+        "cancelled": "تم إلغاء الطلب",
+        "parsing": "فشل تحليل الاستجابة",
+        "unknown": "حدث خطأ غير معروف",
+        "cache": "فشل قراءة البيانات المخزنة مؤقتاً",
+        "validation": "فشل التحقق",
+        "server": {
+            "generic": "حدث خطأ في الخادم",
+            "400": "طلب خاطئ",
+            "401": "غير مصرح",
+            "403": "محظور",
+            "404": "المورد غير موجود",
+            "500": "خطأ داخلي في الخادم",
+            "502": "بوابة خاطئة",
+            "503": "الخدمة غير متاحة"
+        }
+    },
+    "auth": {
+        "login": {
+            "title": "تسجيل الدخول",
+            "username": "اسم المستخدم أو البريد الإلكتروني",
+            "password": "كلمة المرور",
+            "submit": "تسجيل الدخول",
+            "success": "تم تسجيل الدخول بنجاح",
+            "username_required": "اسم المستخدم أو البريد الإلكتروني مطلوب",
+            "password_required": "كلمة المرور مطلوبة"
+        }
+    },
+    "products": {
+        "title": "المنتجات",
+        "actions": {
+            "add": "إضافة منتج",
+            "create": "إنشاء المنتج",
+            "edit": "تعديل المنتج",
+            "update": "تحديث المنتج",
+            "delete": "حذف",
+            "add_to_cart": "أضف إلى السلة",
+            "refresh": "تحديث",
+            "retry": "إعادة المحاولة",
+            "cancel": "إلغاء"
+        },
+        "form": {
+            "title": "العنوان",
+            "price": "السعر",
+            "description": "الوصف",
+            "category": "التصنيف",
+            "image": "رابط الصورة",
+            "untitled": "منتج بدون عنوان",
+            "uncategorized": "غير مصنّف"
+        },
+        "empty": {
+            "title": "لا توجد منتجات بعد",
+            "subtitle": "أنشئ أول منتج لديك وسيظهر هنا."
+        },
+        "details": {
+            "title": "تفاصيل المنتج",
+            "not_found": "المنتج غير موجود",
+            "no_description": "لا يوجد وصف متاح.",
+            "confirm_delete_body": "لا يمكن التراجع عن هذا الإجراء."
+        },
+        "messages": {
+            "success": "تمت العملية بنجاح",
+            "missing_id": "معرّف المنتج غير موجود",
+            "add_success": "تمت إضافة المنتج بنجاح",
+            "update_success": "تم تحديث المنتج بنجاح",
+            "delete_success": "تم حذف المنتج بنجاح",
+            "add_to_cart_success": "تمت إضافة {title} إلى السلة.",
+            "api_temporary_notice": "هذا التغيير مؤقت بسبب واجهات API.",
+            "already_in_cart": "{title} موجود بالفعل في السلة.",
+            "confirm_delete_title": "حذف المنتج؟",
+            "confirm_delete_body": "سيتم حذف \"{title}\" نهائياً."
+        },
+        "validation": {
+            "required": "هذا الحقل مطلوب",
+            "price_required": "السعر مطلوب",
+            "price_invalid": "يجب أن يكون السعر رقماً صحيحاً",
+            "price_positive": "يجب أن يكون السعر أكبر من صفر"
+        }
+    },
+    "carts": {
+        "title": "السلال",
+        "actions": {
+            "add": "إضافة سلة",
+            "create": "إنشاء السلة",
+            "edit": "تعديل السلة",
+            "update": "تحديث السلة",
+            "delete": "حذف",
+            "clear": "مسح",
+            "refresh": "تحديث",
+            "retry": "إعادة المحاولة",
+            "cancel": "إلغاء"
+        },
+        "form": {
+            "user_id": "معرّف المستخدم",
+            "products": "المنتجات"
+        },
+        "empty": {
+            "title": "لا توجد سلال بعد",
+            "subtitle": "أضف منتجات من صفحة المنتجات لتظهر هنا."
+        },
+        "details": {
+            "title": "تفاصيل السلة",
+            "products": "المنتجات في السلة",
+            "not_found": "السلة غير موجودة"
+        },
+        "messages": {
+            "success": "تمت العملية بنجاح",
+            "missing_id": "معرّف السلة غير موجود",
+            "add_success": "تمت إضافة السلة بنجاح",
+            "update_success": "تم تحديث السلة بنجاح",
+            "delete_success": "تم حذف السلة بنجاح",
+            "remove_success": "تمت إزالة المنتج من السلة",
+            "clear_success": "تم مسح السلة بنجاح",
+            "confirm_delete_title": "حذف السلة؟",
+            "confirm_delete_body": "لا يمكن التراجع عن هذا الإجراء.",
+            "confirm_clear_title": "مسح السلة؟",
+            "confirm_clear_body": "سيتم حذف جميع عناصر السلة.",
+            "user_id": "معرّف المستخدم: {id}",
+            "products_count": "عدد المنتجات: {count}",
+            "no_products_available": "لا توجد منتجات متاحة للاختيار.",
+            "no_products_selected": "لا توجد منتجات في هذه السلة."
+        },
+        "validation": {
+            "user_id_required": "معرّف المستخدم مطلوب",
+            "user_id_invalid": "يجب أن يكون معرّف المستخدم رقماً صحيحاً موجباً",
+            "products_required": "يرجى اختيار منتج واحد على الأقل"
+        }
+    }
+}
