@@ -1,30 +1,62 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:future_solutions/features/carts/domain/entities/cart_item_entity.dart';
+import 'package:future_solutions/features/carts/presentation/pages/carts_page.dart';
+import 'package:future_solutions/features/carts/presentation/riverpod/carts_list_provider.dart';
+import 'package:future_solutions/features/products/presentation/pages/products_page.dart';
+import 'package:future_solutions/features/products/presentation/riverpod/products_list_provider.dart';
+import 'package:openapi/openapi.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:future_solutions/main.dart';
+class _FakeProductsListNotifier extends ProductsListNotifier {
+  @override
+  Future<List<Product>> build() async => <Product>[];
+}
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+class _FakeCartItemsNotifier extends CartItemsNotifier {
+  @override
+  Future<List<CartItemEntity>> build() async => <CartItemEntity>[];
+}
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+Future<void> main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
+  await EasyLocalization.ensureInitialized();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  Widget buildTestApp(Widget child) {
+    return EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'lib/l10n/locales',
+      fallbackLocale: const Locale('en'),
+      child: ProviderScope(
+        overrides: [
+          productsListProvider.overrideWith(_FakeProductsListNotifier.new),
+          cartItemsProvider.overrideWith(_FakeCartItemsNotifier.new),
+        ],
+        child: Builder(
+          builder: (context) => MaterialApp(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            home: child,
+          ),
+        ),
+      ),
+    );
+  }
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Products and carts smoke test', (WidgetTester tester) async {
+    await tester.pumpWidget(buildTestApp(const ProductsPage()));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Products'), findsOneWidget);
+
+    await tester.pumpWidget(buildTestApp(const CartsPage()));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(CartsPage), findsOneWidget);
   });
 }
