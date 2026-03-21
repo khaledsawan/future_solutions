@@ -134,7 +134,7 @@ flutter_native_splash:
   android_12:
     # background color
     color: "#F5F8F8"
-    color_dark: "#F5F8F8"
+    color_dark: "#000000"
 
     # center-logo
     # If this parameter is not specified, the app's launcher icon will be used instead.
@@ -143,11 +143,11 @@ flutter_native_splash:
     # without background: 1152×1152 px (fit within circle 768px in diameter)
     # ensure that the most important design elements of your image are placed within a circular area
     image: assets/logo_android12.png
-    # image_dark: assets/images/logo/logo-splash2.png
+    image_dark: assets/logo_android12Dark.png
 
     # center-logo background color
     icon_background_color: "#F5F8F8"
-    icon_background_color_dark: "#F5F8F8"
+    icon_background_color_dark: "#000000"
 
     # branding:
     # The branding image dimensions must be 800x320 px.
