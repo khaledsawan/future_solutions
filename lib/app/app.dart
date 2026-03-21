@@ -26,6 +26,8 @@ class _AppState extends State<App> {
       locale: context.locale,
       routerConfig: _appRouter.config(),
       theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: ThemeMode.system,
     );
 
     if (!widget.flavor.isDevelopment) return app;
